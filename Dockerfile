@@ -1,16 +1,15 @@
 FROM alpine:latest
 
-LABEL maintainer "LJason <https://ljason.cn>"
+LABEL maintainer="LJason <ljason@ljason77.com>"
 
 ENV TZ=Asia/Shanghai
 
-ADD https://github.com/ziahamza/webui-aria2/archive/master.zip .
-
 RUN apk add -qq --no-cache --no-progress --force-refresh aria2 darkhttpd s6 tzdata --repository=https://dl-cdn.alpinelinux.org/alpine/edge/community && \
-	unzip -qq master.zip && \
-	rm -rf /var/cache/apk/* master.zip
+	rm -rf /var/cache/apk/*
 
 COPY files .
+
+ADD https://github.com/ziahamza/webui-aria2.git /webui-aria2-master
 
 VOLUME ["/data"]
 

@@ -3,7 +3,7 @@ set -e
 
 PUID=${PUID:=1000}
 PGID=${PGID:=1000}
-conf=/data/aria2
+conf=/data/Aria2
 
 if [ ! -f $conf/aria2.conf ]; then
 	mkdir -pv $conf
